@@ -3,6 +3,10 @@ require 'reqres_rspec/collector'
 require 'reqres_rspec/writers/html'
 require 'reqres_rspec/generators/pdf'
 
+if defined?(Rails)
+  require 'reqres_rspec/railtie'
+end
+
 if defined?(RSpec) && ENV['REQRES_RSPEC'] == '1'
   collector = ReqresRspec::Collector.new
 
